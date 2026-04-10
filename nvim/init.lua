@@ -4,3 +4,6 @@ vim.pack.add({
    version = vim.version.range("^2.0.0")}
 })
 require("hotpot")
+require("config")
+require("config.lualine").setup()
+
