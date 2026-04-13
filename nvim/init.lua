@@ -5,5 +5,5 @@ vim.pack.add({
 })
 require("hotpot")
 require("config")
+require("config.lappearance").setup()
 require("config.lualine").setup()
-
