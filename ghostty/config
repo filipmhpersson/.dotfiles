@@ -45,7 +45,7 @@
 #
 font-family = 'JetBrains Mono Nerd Font'
 
-theme = light:iTerm2 Solarized Light,dark:Github Dark Dimmed
+theme = light:kanagawa-lotus,dark:kanagawa-dragon
 
 font-size = 18
 window-inherit-font-size = false
