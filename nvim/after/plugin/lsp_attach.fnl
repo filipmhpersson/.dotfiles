@@ -12,7 +12,7 @@
 
      ;; completion while typing
      (vim.lsp.completion.enable
-       true
+       false
        client.id
        ev.buf
        {:autotrigger true})
@@ -30,12 +30,15 @@
             {:bufnr ev.buf
              :async false}))})
 
+     (local fzf (require "fzf-lua"))
+     (let [opts { :buffer ev.buf :silent true}]
+     (vim.keymap.set "n" "gd" fzf.lsp_definitions opts)
+     (vim.keymap.set "n" "gri" vim.lsp.buf.implementation opts)
+     (vim.keymap.set "n" "grr" fzf.lsp_references opts)
+
+     
      ;; goto implementation
      ;; nvim already maps `gri` by default in recent versions,
      ;; but this makes it explicit per buffer.
-     (vim.keymap.set
-       "n"
-       "gri"
-       vim.lsp.buf.implementation
-       {:buffer ev.buf
+            {:buffer ev.buf
         :desc "LSP: goto implementation"}) )})

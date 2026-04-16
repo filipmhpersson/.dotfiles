@@ -14,6 +14,39 @@
 (set_opt "smartcase" true)
 (set_opt "inccommand" "split")
 
+(set_opt "mouse" "a")
+(set_opt "tabstop" 4)
+(set_opt "softtabstop" 4)
+(set_opt "shiftwidth" 4)
+(set_opt "expandtab" true)
+(set_opt "showmode" false)
+(set_opt "breakindent" false)
+(set_opt "wrap" false)
+
+(set_opt "scrolloff" 10)
+(set_opt "sidescrolloff" 10)
+(set_opt "signcolumn" "yes")
+(set_opt "autoindent" true)
+(set_opt "updatetime" 250)
+(set_opt "timeoutlen" 300)
+
+(set_opt "swapfile" false)
+(set_opt "backup" false)
+(set_opt "writebackup" false)
+(set_opt "undodir" (.. (os.getenv "HOME") "/.vim/undodir"))
+(set_opt "autoread" true)
+(set_opt "autowrite" false)
+(set_opt "undofile" true)
+(set_opt "incsearch" true)
+(set_opt "splitright" true)
+(set_opt "splitbelow" true)
+(vim.api.nvim_set_hl 0 "CursorLine" {:bg "NONE"})
+
+
+(vim.api.nvim_create_autocmd
+	["CursorHold" "CursorHoldI"]
+	{ :command "checktime" })
+
 (vim.api.nvim_create_autocmd
 	"TextYankPost"
 	{ :group (vim.api.nvim_create_augroup "hl-yank" { :clear true})

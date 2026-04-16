@@ -17,3 +17,5 @@
 
 (vim.keymap.set "t" "<Esc><Esc>" "<C-\\><C-n>")
 (vim.keymap.set ["n" "v"] "<leader>y" "\"+y" { :noremap true :silent true})
+(vim.keymap.set "x" "<leader>p" "\"_dP" { :desc "[P]aste and keep same text in copy buffer}" })
+
