@@ -11,8 +11,6 @@
 	 (gh "stevearc/oil.nvim")
 	 (gh "mason-org/mason.nvim")
 	 (gh "stevearc/conform.nvim")
-	 (gh "projekt0n/github-nvim-theme")
-	 (gh "maxmx03/solarized.nvim")
 	 (gh "neovim/nvim-lspconfig")
 	 (gh "seblyng/roslyn.nvim")
 	 (gh "ember-theme/nvim")
@@ -55,9 +53,6 @@
   :fg "#5c6370"
   :italic true
 })
-
-(require "github-theme")
-(require "solarized")
 
 
 (vim.diagnostic.config {

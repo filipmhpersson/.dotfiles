@@ -8,7 +8,7 @@
 
 (set_opt "nu" true)
 (set_opt "relativenumber" true)
-(set_opt "cursorline" true)
+;(set_opt "cursorline" true)
 (set_opt "hlsearch" true)
 (set_opt "ignorecase" true)
 (set_opt "smartcase" true)
