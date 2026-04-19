@@ -6,6 +6,8 @@
 
 (set_g "have_nerd_font" true)
 
+(set_opt "termguicolors" true)
+
 (set_opt "nu" true)
 (set_opt "relativenumber" true)
 ;(set_opt "cursorline" true)
@@ -13,6 +15,8 @@
 (set_opt "ignorecase" true)
 (set_opt "smartcase" true)
 (set_opt "inccommand" "split")
+(set_opt "expandtab" true)
+(set_opt "smartindent" true)
 
 (set_opt "mouse" "a")
 (set_opt "tabstop" 4)

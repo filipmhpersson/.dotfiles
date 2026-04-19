@@ -43,7 +43,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 #
-font-family = 'JetBrains Mono Nerd Font'
+font-family = 'JetBrains Mono'
 
 theme = light:kanagawa-lotus,dark:kanagawa-dragon
 

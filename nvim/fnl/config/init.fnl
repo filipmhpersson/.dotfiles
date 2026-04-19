@@ -13,26 +13,33 @@
 	 (gh "stevearc/conform.nvim")
 	 (gh "neovim/nvim-lspconfig")
 	 (gh "seblyng/roslyn.nvim")
-	 (gh "ember-theme/nvim")
    (gh "windwp/nvim-autopairs")
    (gh "nvim-mini/mini.surround")
    (gh "nvim-mini/mini.ai")
 	 (gh "ibhagwan/fzf-lua")
-	 (gh "rebelot/kanagawa.nvim")
+   (gh "sainnhe/gruvbox-material")
 	 (gh "tpope/vim-fugitive")
    {:src "https://github.com/saghen/blink.cmp" :version "v1"}
 	])
-(vim.lsp.enable "ts_go")
+
+(vim.lsp.enable "tsgo")
+(vim.lsp.enable "tsp_server")
 (vim.lsp.enable "rust_analyzer")
 (vim.lsp.enable "zls")
 (vim.lsp.enable "lua_ls")
-(vim.lsp.enable "roslyn")
+(vim.lsp.enable "basedpyright")
+
+(set vim.g.gruvbox_material_better_performance 1)
+(set vim.g.gruvbox_material_foreground "material")
+(set vim.g.gruvbox_material_background "hard")
+(set vim.g.lightlight { :colorscheme "gruvbox_material"})
+
+(set vim.g.colorscheme "gruvbox_material")
 
 (vim.keymap.set "n" "<leader>gs" vim.cmd.Git)
 
-
 ((. (require "nvim-treesitter") :install)
- ["lua" "fennel" "rust" "c_sharp" "c" "vim" "haskell" "zig" "markdown" "markdown_inline" "regex"])
+ ["lua" "fennel" "rust" "c_sharp" "c" "vim" "haskell" "zig" "markdown" "markdown_inline" "regex" "typescript" "tsx" "javascript" "jsx" "typespec"])
 (set vim.bo.indentexpr  "v:lua.require'nvim-treesitter'.indentexpr()")
 
 (vim.cmd "packadd nvim.undotree")
@@ -41,13 +48,26 @@
 ((. (require "mini.surround") :setup))
 ((. (require "nvim-autopairs") :setup))
 ((. (require "mini.ai") :setup) { :n_lines 500})
-((. (require "kanagawa") :setup) { :complie false :transparent false :colors { :theme { :all { :ui { :bg_gutter "none"}}}}})
+
 ((. (require "Oil") :setup))
 
 (vim.keymap.set "n" "-" "<CMD>Oil<CR>")
 
 ((. (require "mason") :setup) 
  {:registries ["github:mason-org/mason-registry" "github:Crashdummyy/mason-registry"]})
+((. (require "conform") :setup) 
+(let [javascript ["prettierd" "prettier"]]
+  (tset javascript :stop_after_first true)
+ {
+ :format_on_save { :timeout 500 :lsp_format "fallback"}
+ :formatters_by_ft {
+    :javascript javascript
+    :javascriptreact javascript
+    :typescript javascript
+    :typescriptreact  javascript
+    :typespec  javascript
+ }
+ }))
 
 (vim.api.nvim_set_hl 0 "LspCodeLens" {
   :fg "#5c6370"
@@ -56,13 +76,15 @@
 
 
 (vim.diagnostic.config {
-  :virtual_text false
+  :virtual_text true
+  :virtual_lines false
 })
+
 
  ((. (require "blink.cmp") :setup) {
      :keymap { :preset "default"}
      :appearance { :nerd_font_variant "mono" }
      :signature { :enabled true }
-     :completion { :auto_show true :documentation { :auto_show false :auto_show_delay_ms  500 } }
+     :completion {  :documentation { :auto_show false :auto_show_delay_ms  500 } }
      :sources { :default ["lsp" "path" "snippets" "buffer"] }
      :fuzzy { :implementation "rust" }})
