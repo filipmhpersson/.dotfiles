@@ -8,6 +8,7 @@
 	[
    (gh "nvim-lua/plenary.nvim")
    (gh "nvim-treesitter/nvim-treesitter")
+   (gh "nvim-treesitter/nvim-treesitter-textobjects")
 	 (gh "stevearc/oil.nvim")
 	 (gh "mason-org/mason.nvim")
 	 (gh "stevearc/conform.nvim")
@@ -15,6 +16,7 @@
 	 (gh "seblyng/roslyn.nvim")
    (gh "windwp/nvim-autopairs")
    (gh "nvim-mini/mini.surround")
+   (gh "MeanderingProgrammer/render-markdown.nvim")
    (gh "nvim-mini/mini.ai")
 	 (gh "ibhagwan/fzf-lua")
    (gh "sainnhe/gruvbox-material")
@@ -34,26 +36,29 @@
 (set vim.g.gruvbox_material_background "hard")
 (set vim.g.lightlight { :colorscheme "gruvbox_material"})
 
+
 (set vim.g.colorscheme "gruvbox_material")
+
 
 (vim.keymap.set "n" "<leader>gs" vim.cmd.Git)
 
 ((. (require "nvim-treesitter") :install)
  ["lua" "fennel" "rust" "c_sharp" "c" "vim" "haskell" "zig" "markdown" "markdown_inline" "regex" "typescript" "tsx" "javascript" "jsx" "typespec"])
-(set vim.bo.indentexpr  "v:lua.require'nvim-treesitter'.indentexpr()")
+(set vim.bo.indentexpr  "v:lua.require''.indentexpr()")
 
 (vim.cmd "packadd nvim.undotree")
 (vim.keymap.set "n" "<leader>u" vim.cmd.Undotree)
 
 ((. (require "mini.surround") :setup))
 ((. (require "nvim-autopairs") :setup))
+((. (require "render-markdown") :setup))
+((. (require "nvim-treesitter-textobjects") :setup))
 ((. (require "mini.ai") :setup) { :n_lines 500})
-
 ((. (require "Oil") :setup))
 
 (vim.keymap.set "n" "-" "<CMD>Oil<CR>")
 
-((. (require "mason") :setup) 
+((. (require "mason") :setup)
  {:registries ["github:mason-org/mason-registry" "github:Crashdummyy/mason-registry"]})
 ((. (require "conform") :setup) 
 (let [javascript ["prettierd" "prettier"]]
@@ -81,10 +86,11 @@
 })
 
 
- ((. (require "blink.cmp") :setup) {
-     :keymap { :preset "default"}
-     :appearance { :nerd_font_variant "mono" }
-     :signature { :enabled true }
-     :completion {  :documentation { :auto_show false :auto_show_delay_ms  500 } }
-     :sources { :default ["lsp" "path" "snippets" "buffer"] }
-     :fuzzy { :implementation "rust" }})
+((. (require "blink.cmp") :setup) {
+      :keymap { :preset "default"}
+      :appearance { :nerd_font_variant "mono" }
+      :signature { :enabled true }
+      :completion {  :documentation { :auto_show false :auto_show_delay_ms  500 } }
+      :sources { :default ["lsp" "path" "snippets" "buffer"] }
+      :fuzzy { :implementation "rust" }
+      })
