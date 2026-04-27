@@ -1,5 +1,5 @@
-(lambda set_n [key action]
-	(vim.keymap.set "n" key action))
+(fn set_n [key action opts]
+	(vim.keymap.set "n" key action opts))
 
 (set_n "<C-h>" "<C-w><C-h>")
 (set_n "<C-j>" "<C-w><C-j>")
@@ -9,10 +9,10 @@
 
 (set_n "<Esc>" "<cmd>nohlsearch<CR>")
 (set_n "J" "mzJ`z")
-(set_n "<C-d>" "<C-d>zz")
-(set_n "<C-u>" "<C-u>zz")
-(set_n "n" "nzzzv")
-(set_n "N" "Nzzzv")
+(set_n "<C-d>" "<C-d>zz" { :desc "d + center"})
+(set_n "<C-u>" "<C-u>zz" { :desc "u + center"})
+(set_n "n" "nzzzv" { :desc "Next result and center"})
+(set_n "N" "Nzzzv" { :desc "Prev result and center"})
 (set_n "<leader>q" vim.diagnostic.setloclist)
 
 (vim.keymap.set "t" "<Esc><Esc>" "<C-\\><C-n>")

@@ -45,6 +45,8 @@
 (set_opt "splitright" true)
 (set_opt "splitbelow" true)
 (vim.api.nvim_set_hl 0 "CursorLine" {:bg "NONE"})
+(vim.api.nvim_set_hl 0 "WinSeparator" { :fg "bg" })
+
 
 
 (vim.api.nvim_create_autocmd

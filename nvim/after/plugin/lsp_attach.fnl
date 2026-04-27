@@ -1,4 +1,4 @@
-(vim.lsp.inline_completion.enable true)
+(vim.lsp.inline_completion.enable false)
 (vim.api.nvim_create_autocmd
   "LspAttach"
   {:callback
