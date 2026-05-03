@@ -71,7 +71,7 @@ local function detect_appearance_sync()
   end
 
   local ok, output = run_sync({ "defaults", "read", "-g", "AppleInterfaceStyle" })
-  return ok and output == "Dark" and "dark" or "light"
+  return ok and output == "Light" and "light" or "dark"
 end
 
 local function refresh_lualine()
@@ -90,15 +90,12 @@ local function apply(mode)
 
   vim.schedule(function()
     local is_light = mode == "light"
-    local colorscheme = is_light and "kanagawa-lotus" or "kanagawa-dragon"
-
-    print(colorscheme)
-    print(colorscheme)
+    local colorscheme = is_light and "gruvbox-material" or "gruvbox-material"
     vim.o.background = is_light and "light" or "dark"
 
     local ok = pcall(vim.cmd.colorscheme, colorscheme)
     if not ok and is_light then
-      pcall(vim.cmd.colorscheme, "ember-light")
+      pcall(vim.cmd.colorscheme, "gruvbox-material")
     end
 
     refresh_lualine()

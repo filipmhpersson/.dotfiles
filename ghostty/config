@@ -43,9 +43,9 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 #
-font-family = 'JetBrains Mono Nerd Font'
+font-family = 'JetBrains Mono'
 
-theme = light:kanagawa-lotus,dark:kanagawa-dragon
+theme = light:gruvbox-material-hard-light,dark:gruvbox-material-hard-dark
 
 font-size = 18
 window-inherit-font-size = false
