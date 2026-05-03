@@ -7,9 +7,10 @@ vim.pack.add({
 })
 require("hotpot")
 require("config")
-require("config.lappearance").setup()
 require("config.lualine").setup()
 require("config.fzflua")
+
+
 -- -- Optional: make floating windows match
 -- set_hl(0, "NormalFloat", { bg = "#20242a" })
 -- set_hl(0, "FloatBorder", { fg = "#5c6370", bg = "#20242a" })

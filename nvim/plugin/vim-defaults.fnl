@@ -32,7 +32,7 @@
 (set_opt "signcolumn" "yes")
 (set_opt "autoindent" true)
 (set_opt "updatetime" 250)
-(set_opt "timeoutlen" 300)
+;(set_opt "timeoutlen" 300)
 
 (set_opt "swapfile" false)
 (set_opt "backup" false)
