@@ -54,7 +54,11 @@ FzfLua.setup({
   fzf_opts = {
     ["--layout"] = "reverse",
   },
-
+  keymap = {
+    fzf = {
+      ["ctrl-q"] = "select-all+accept",
+    }
+  },
   -- Core pickers use a bottom dock with optional right preview
   files = {
     winopts = bottom_winopts_responsive, -- function => recalculated each open
@@ -117,11 +121,6 @@ end, { desc = '[S]earch Recent Files ("." for repeat)' })
 vim.keymap.set("n", "<leader><leader>", function()
   FzfLua.buffers()
 end, { desc = "[ ] Find existing buffers" })
-
--- Zen toggle
-vim.keymap.set("n", "<leader>z", function()
-  Zen.toggle()
-end, { desc = "Toggle [Z]en" })
 
 -- Backdrop highlight sync
 local function set_fzflua_backdrop_to_normal()

@@ -10,7 +10,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
-      "rev": "64590411e6cf3d603d1e1bdad3a3d051f2f5a91a",
+      "rev": "cf4c30892644f01ebfb1e248eeca9e259856f9dc",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gruvbox-material": {
@@ -31,7 +31,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.ai": {
-      "rev": "43eb2074843950a3a25aae56a5f41362ec043bfa",
+      "rev": "7e10ce8468c0fce4f527ae2c0e5c484f7667f73d",
       "src": "https://github.com/nvim-mini/mini.ai"
     },
     "mini.surround": {
