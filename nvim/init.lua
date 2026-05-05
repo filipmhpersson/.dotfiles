@@ -1,4 +1,3 @@
--- init.lua
 vim.pack.add({
   {
     src = "https://github.com/rktjmp/hotpot.nvim",
