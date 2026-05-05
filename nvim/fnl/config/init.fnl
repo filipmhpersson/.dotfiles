@@ -56,9 +56,11 @@
 
 ((. (require "mini.surround") :setup))
 ((. (require "nvim-autopairs") :setup))
+
 ((. (require "render-markdown") :setup))
 ((. (require "nvim-treesitter-textobjects") :setup))
 ((. (require "mini.ai") :setup) { :n_lines 500})
+((. (require "roslyn") :setup) { :filewatching "roslyn"})
 ((. (require "Oil") :setup))
 (vim.keymap.set "n" "-" "<CMD>Oil<CR>")
 
@@ -90,6 +92,7 @@
 })
 (vim.keymap.set "n" "<leader>pt" ":Make test<cr>")
 (vim.keymap.set "n" "<leader>pb" ":Make build<cr>")
+(vim.keymap.set "n" "<leader>pr" ":Make run<cr>")
 
 ((. (require "blink.cmp") :setup) {
       :keymap { :preset "default"}
