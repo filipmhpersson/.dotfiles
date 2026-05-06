@@ -54,7 +54,7 @@
 ((. (require "render-markdown") :setup))
 ((. (require "nvim-treesitter-textobjects") :setup))
 ((. (require "mini.ai") :setup) { :n_lines 500})
-((. (require "Oil") :setup))
+((. (require "oil") :setup))
 
 (vim.keymap.set "n" "-" "<CMD>Oil<CR>")
 
