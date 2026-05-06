@@ -1,4 +1,3 @@
--- init.lua
 vim.pack.add({
   {
     src = "https://github.com/rktjmp/hotpot.nvim",
@@ -7,7 +6,6 @@ vim.pack.add({
 })
 require("hotpot")
 require("config")
-require("config.lappearance").setup()
 require("config.lualine").setup()
 require("config.fzflua")
 -- -- Optional: make floating windows match
