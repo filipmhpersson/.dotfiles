@@ -47,5 +47,5 @@ font-family = 'JetBrains Mono'
 
 theme = light:gruvbox-material-hard-light,dark:gruvbox-material-hard-dark
 
-font-size = 18
+font-size = 15
 window-inherit-font-size = false
