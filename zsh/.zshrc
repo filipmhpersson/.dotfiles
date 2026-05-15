@@ -56,6 +56,8 @@ nvm() { load_nvm; nvm "$@"; }
 # Added by get-aspire-cli.sh
 export PATH="$HOME/.aspire/bin:$PATH"
 
+
+# Use for env variables outside of git
 LOCAL_ENV="$HOME/.config/zsh/local.env.zsh"
 if [[ -f "$LOCAL_ENV" ]]; then
     source "$LOCAL_ENV"
