@@ -60,12 +60,20 @@
 ((. (require "render-markdown") :setup))
 ((. (require "nvim-treesitter-textobjects") :setup))
 ((. (require "mini.ai") :setup) { :n_lines 500})
-((. (require "roslyn") :setup) { :filewatching "roslyn"})
+((. (require "roslyn") :setup) {
+  :filewatching "roslyn"
+  :extensions {
+    :razor {
+      :enabled false
+    }
+  }
+})
 ((. (require "oil") :setup))
 (vim.keymap.set "n" "-" "<CMD>Oil<CR>")
 
 ((. (require "mason") :setup)
  {:registries ["github:mason-org/mason-registry" "github:Crashdummyy/mason-registry"]})
+
 ((. (require "conform") :setup) 
 (let [javascript ["prettierd" "prettier"]]
   (tset javascript :stop_after_first true)
@@ -77,6 +85,7 @@
     :typescript javascript
     :typescriptreact  javascript
     :typespec  javascript
+    :cs ["csharpier"]
  }
  }))
 
