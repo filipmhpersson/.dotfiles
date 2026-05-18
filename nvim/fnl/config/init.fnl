@@ -21,6 +21,7 @@
 	 (gh "ibhagwan/fzf-lua")
    (gh "sainnhe/gruvbox-material")
 	 (gh "tpope/vim-fugitive")
+   (gh "tpope/vim-dispatch")
    {:src "https://github.com/saghen/blink.cmp" :version "v1"}
 	])
 
@@ -35,9 +36,13 @@
 (set vim.g.gruvbox_material_foreground "material")
 (set vim.g.gruvbox_material_background "hard")
 (set vim.g.lightlight { :colorscheme "gruvbox_material"})
+(set vim.o.autowriteall true)
 
 
-(set vim.g.colorscheme "gruvbox_material")
+(pcall vim.cmd.colorscheme "gruvbox-material")
+
+
+;(set vim.g.colorscheme "gruvbox_material")
 
 
 (vim.keymap.set "n" "<leader>gs" vim.cmd.Git)
@@ -51,15 +56,24 @@
 
 ((. (require "mini.surround") :setup))
 ((. (require "nvim-autopairs") :setup))
+
 ((. (require "render-markdown") :setup))
 ((. (require "nvim-treesitter-textobjects") :setup))
 ((. (require "mini.ai") :setup) { :n_lines 500})
-((. (require "Oil") :setup))
-
+((. (require "roslyn") :setup) {
+  :filewatching "roslyn"
+  :extensions {
+    :razor {
+      :enabled false
+    }
+  }
+})
+((. (require "oil") :setup))
 (vim.keymap.set "n" "-" "<CMD>Oil<CR>")
 
 ((. (require "mason") :setup)
  {:registries ["github:mason-org/mason-registry" "github:Crashdummyy/mason-registry"]})
+
 ((. (require "conform") :setup) 
 (let [javascript ["prettierd" "prettier"]]
   (tset javascript :stop_after_first true)
@@ -71,6 +85,7 @@
     :typescript javascript
     :typescriptreact  javascript
     :typespec  javascript
+    :cs ["csharpier"]
  }
  }))
 
@@ -84,7 +99,9 @@
   :virtual_text true
   :virtual_lines false
 })
-
+(vim.keymap.set "n" "<leader>pt" ":Make test<cr>")
+(vim.keymap.set "n" "<leader>pb" ":Make build<cr>")
+(vim.keymap.set "n" "<leader>pr" ":Make run<cr>")
 
 ((. (require "blink.cmp") :setup) {
       :keymap { :preset "default"}

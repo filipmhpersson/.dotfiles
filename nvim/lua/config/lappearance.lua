@@ -91,7 +91,7 @@ local function apply(mode)
   vim.schedule(function()
     local is_light = mode == "light"
     local colorscheme = is_light and "gruvbox-material" or "gruvbox-material"
-    vim.o.background = is_light and "light" or "dark"
+    vim.o.background = is_light and "dark" or "dark"
 
     local ok = pcall(vim.cmd.colorscheme, colorscheme)
     if not ok and is_light then
