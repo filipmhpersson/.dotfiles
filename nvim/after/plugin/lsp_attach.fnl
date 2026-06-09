@@ -20,16 +20,6 @@
      ;; optional: disable document colors too
      (vim.lsp.document_color.enable false {:bufnr ev.buf})
 
-     ;; auto format on save
-     (vim.api.nvim_create_autocmd
-       "BufWritePre"
-       {:buffer ev.buf
-        :callback
-        (fn []
-          (vim.lsp.buf.format
-            {:bufnr ev.buf
-             :async false}))})
-
      (local fzf (require "fzf-lua"))
      (let [opts { :buffer ev.buf :silent true}]
      (vim.keymap.set "n" "gd" fzf.lsp_definitions opts)

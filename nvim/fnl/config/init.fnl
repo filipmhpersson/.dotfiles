@@ -54,6 +54,7 @@
 (vim.cmd "packadd nvim.undotree")
 (vim.keymap.set "n" "<leader>u" vim.cmd.Undotree)
 
+
 ((. (require "mini.surround") :setup))
 ((. (require "nvim-autopairs") :setup))
 
@@ -78,13 +79,14 @@
 (let [javascript ["prettierd" "prettier"]]
   (tset javascript :stop_after_first true)
  {
- :format_on_save { :timeout 500 :lsp_format "fallback"}
+ :format_on_save { :timeout 3000 :lsp_format "fallback"}
  :formatters_by_ft {
     :javascript javascript
     :javascriptreact javascript
     :typescript javascript
     :typescriptreact  javascript
     :typespec  javascript
+    :yaml  javascript
     :cs ["csharpier"]
  }
  }))
