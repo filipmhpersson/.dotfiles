@@ -22,7 +22,7 @@
    (gh "sainnhe/gruvbox-material")
 	 (gh "tpope/vim-fugitive")
    (gh "tpope/vim-dispatch")
-   {:src "https://github.com/saghen/blink.cmp" :version "v1"}
+   {:src "https://github.com/saghen/blink.cmp" :version "v1.10.2"}
 	])
 
 (vim.lsp.enable "tsgo")
@@ -42,7 +42,7 @@
 (pcall vim.cmd.colorscheme "gruvbox-material")
 
 
-;(set vim.g.colorscheme "gruvbox_material")
+(set vim.g.colorscheme "gruvbox_material")
 
 
 (vim.keymap.set "n" "<leader>gs" vim.cmd.Git)

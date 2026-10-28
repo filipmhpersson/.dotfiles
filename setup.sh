@@ -41,6 +41,7 @@ link() {
 }
 
 link "$DOTFILES/nvim"        "$HOME/.config/nvim"
+link "$DOTFILES/nvim-vscode" "$HOME/.config/nvim-vscode"
 link "$DOTFILES/ghostty"     "$HOME/.config/ghostty"
 link "$DOTFILES/.tmux.conf"  "$HOME/.tmux.conf"
 link "$DOTFILES/zsh/.zshrc"  "$HOME/.zshrc"
