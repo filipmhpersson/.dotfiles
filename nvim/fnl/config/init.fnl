@@ -28,7 +28,9 @@
 (vim.lsp.enable "tsgo")
 (vim.lsp.enable "tsp_server")
 (vim.lsp.enable "rust_analyzer")
+(vim.lsp.enable "roslyn")
 (vim.lsp.enable "zls")
+(vim.lsp.enable "ols")
 (vim.lsp.enable "lua_ls")
 (vim.lsp.enable "basedpyright")
 
@@ -48,12 +50,11 @@
 (vim.keymap.set "n" "<leader>gs" vim.cmd.Git)
 
 ((. (require "nvim-treesitter") :install)
- ["lua" "fennel" "rust" "c_sharp" "c" "vim" "haskell" "zig" "markdown" "markdown_inline" "regex" "typescript" "tsx" "javascript" "jsx" "typespec"])
+ ["lua" "odin" "fennel" "rust" "c_sharp" "c" "vim" "haskell" "zig" "markdown" "markdown_inline" "regex" "typescript" "tsx" "javascript" "jsx" "typespec"])
 (set vim.bo.indentexpr  "v:lua.require''.indentexpr()")
 
 (vim.cmd "packadd nvim.undotree")
 (vim.keymap.set "n" "<leader>u" vim.cmd.Undotree)
-
 
 ((. (require "mini.surround") :setup))
 ((. (require "nvim-autopairs") :setup))
@@ -61,14 +62,14 @@
 ((. (require "render-markdown") :setup))
 ((. (require "nvim-treesitter-textobjects") :setup))
 ((. (require "mini.ai") :setup) { :n_lines 500})
-((. (require "roslyn") :setup) {
-  :filewatching "roslyn"
-  :extensions {
-    :razor {
-      :enabled false
-    }
-  }
-})
+; ((. (require "roslyn") :setup) {
+;   :filewatching "roslyn"
+;   :extensions {
+;     :razor {
+;       :enabled false
+;     }
+;   }
+; })
 ((. (require "oil") :setup))
 (vim.keymap.set "n" "-" "<CMD>Oil<CR>")
 
@@ -86,7 +87,6 @@
     :typescript javascript
     :typescriptreact  javascript
     :typespec  javascript
-    :yaml  javascript
     :cs ["csharpier"]
  }
  }))

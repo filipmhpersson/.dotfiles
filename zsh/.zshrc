@@ -92,3 +92,9 @@ _tmux_rename_to_shell() {
 add-zsh-hook preexec _tmux_rename_to_command
 add-zsh-hook precmd _tmux_rename_to_shell
 
+
+[ -f "/Users/fchamp/.ghcup/env" ] && . "/Users/fchamp/.ghcup/env" # ghcup-env
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/fchamp/.lmstudio/bin"
+# End of LM Studio CLI section
+
