@@ -23,6 +23,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # --- NVM ---
 export NVM_DIR="$HOME/.nvm"
+export DOTNET_ROOT="/usr/local/sh/dotnet"
 
 # Make the default nvm Node available without sourcing nvm on every shell start.
 # Handles `nvm alias default node` by resolving `node` to the latest installed version.
