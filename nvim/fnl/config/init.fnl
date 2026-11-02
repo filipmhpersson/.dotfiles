@@ -26,6 +26,7 @@
 	])
 
 (vim.lsp.enable "tsgo")
+(vim.lsp.enable "roslyn")
 (vim.lsp.enable "tsp_server")
 (vim.lsp.enable "rust_analyzer")
 (vim.lsp.enable "zls")
@@ -42,7 +43,7 @@
 (pcall vim.cmd.colorscheme "gruvbox-material")
 
 
-(set vim.g.colorscheme "gruvbox_material")
+;(set vim.g.colorscheme "gruvbox_material")
 
 
 (vim.keymap.set "n" "<leader>gs" vim.cmd.Git)
