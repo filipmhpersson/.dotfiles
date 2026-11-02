@@ -22,10 +22,11 @@
    (gh "sainnhe/gruvbox-material")
 	 (gh "tpope/vim-fugitive")
    (gh "tpope/vim-dispatch")
-   {:src "https://github.com/saghen/blink.cmp" :version "v1"}
+   {:src "https://github.com/saghen/blink.cmp" :version "v1.10.2"}
 	])
 
 (vim.lsp.enable "tsgo")
+(vim.lsp.enable "roslyn")
 (vim.lsp.enable "tsp_server")
 (vim.lsp.enable "rust_analyzer")
 (vim.lsp.enable "roslyn")
