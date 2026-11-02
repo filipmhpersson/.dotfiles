@@ -6,17 +6,24 @@ fi
 source "$HOMEBREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
 # --- Prompt ---
-autoload -Uz vcs_info
-precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats ' %F{green}(%b)%f'
+# autoload -Uz vcs_info
+# precmd() { vcs_info }
+# zstyle ':vcs_info:git:*' formats ' %F{green}(%b)%f'
 setopt PROMPT_SUBST
 
 PROMPT='%F{blue}%~%f${vcs_info_msg_0_} %F{yellow}❯%f '
 
 export PI_OFFLINE=1
 
+#export ASPNETCORE_ENVIRONMENT=Development
+#export DOTNET_ENVIRONMENT=Development
+
+# Personal scripts
+export PATH="$HOME/.local/bin:$PATH"
+
 # --- NVM ---
 export NVM_DIR="$HOME/.nvm"
+export DOTNET_ROOT="/usr/local/share/dotnet"
 
 # Make the default nvm Node available without sourcing nvm on every shell start.
 # Handles `nvm alias default node` by resolving `node` to the latest installed version.
@@ -90,4 +97,10 @@ _tmux_rename_to_shell() {
 
 add-zsh-hook preexec _tmux_rename_to_command
 add-zsh-hook precmd _tmux_rename_to_shell
+
+
+[ -f "/Users/fchamp/.ghcup/env" ] && . "/Users/fchamp/.ghcup/env" # ghcup-env
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/fchamp/.lmstudio/bin"
+# End of LM Studio CLI section
 

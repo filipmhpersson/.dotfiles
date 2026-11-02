@@ -22,13 +22,16 @@
    (gh "sainnhe/gruvbox-material")
 	 (gh "tpope/vim-fugitive")
    (gh "tpope/vim-dispatch")
-   {:src "https://github.com/saghen/blink.cmp" :version "v1"}
+   {:src "https://github.com/saghen/blink.cmp" :version "v1.10.2"}
 	])
 
 (vim.lsp.enable "tsgo")
+(vim.lsp.enable "roslyn")
 (vim.lsp.enable "tsp_server")
 (vim.lsp.enable "rust_analyzer")
+(vim.lsp.enable "roslyn")
 (vim.lsp.enable "zls")
+(vim.lsp.enable "ols")
 (vim.lsp.enable "lua_ls")
 (vim.lsp.enable "basedpyright")
 
@@ -48,7 +51,7 @@
 (vim.keymap.set "n" "<leader>gs" vim.cmd.Git)
 
 ((. (require "nvim-treesitter") :install)
- ["lua" "fennel" "rust" "c_sharp" "c" "vim" "haskell" "zig" "markdown" "markdown_inline" "regex" "typescript" "tsx" "javascript" "jsx" "typespec"])
+ ["lua" "odin" "fennel" "rust" "c_sharp" "c" "vim" "haskell" "zig" "markdown" "markdown_inline" "regex" "typescript" "tsx" "javascript" "jsx" "typespec"])
 (set vim.bo.indentexpr  "v:lua.require''.indentexpr()")
 
 (vim.cmd "packadd nvim.undotree")
@@ -60,14 +63,14 @@
 ((. (require "render-markdown") :setup))
 ((. (require "nvim-treesitter-textobjects") :setup))
 ((. (require "mini.ai") :setup) { :n_lines 500})
-((. (require "roslyn") :setup) {
-  :filewatching "roslyn"
-  :extensions {
-    :razor {
-      :enabled false
-    }
-  }
-})
+; ((. (require "roslyn") :setup) {
+;   :filewatching "roslyn"
+;   :extensions {
+;     :razor {
+;       :enabled false
+;     }
+;   }
+; })
 ((. (require "oil") :setup))
 (vim.keymap.set "n" "-" "<CMD>Oil<CR>")
 
@@ -78,7 +81,7 @@
 (let [javascript ["prettierd" "prettier"]]
   (tset javascript :stop_after_first true)
  {
- :format_on_save { :timeout 500 :lsp_format "fallback"}
+ :format_on_save { :timeout 3000 :lsp_format "fallback"}
  :formatters_by_ft {
     :javascript javascript
     :javascriptreact javascript
